@@ -106,17 +106,14 @@ void main()
 	 *   main control structure.*/
 	while(1) {
 		/* We can see from the board schematics that our external system clock
-		 *   has frequency of 40MHz. In the MCU doc a PLL is mentioned (e.g. 
-		 *   block diagram on p.23 or "Clock, reset, and Power management
-		 *   on p. 30") that can make up to 240 MHz from it, but a quick
-		 *   search for "PLL" in the manual tells us that it is not used
-		 *   for system clock (section 15.2.1 on p. 410). No dividers are
-		 *   mentioned as well, so we can quite safely assume that CPU clock
-		 *   is 40MHz. One loop iteration takes minimum 2 CPU cycles (one for
-		 *   increment and one for branching, we can look into the assembler
-		 *   listing to be sure), so with delay of 1 million iterations
-		 *   LEDs will be toggled twice a second, which makes full period each
-		 *   second*/
+		 *   has frequency of 40MHz. Usually the MCU frequency somehow depends
+		 *   on external generator frequency, but in case of CC3200 both are fixed:
+		 *   external clock is always 40MHz and system clock (in active mode) is
+		 *   80 MHz (section 15.1.4 on p. 406) One loop iteration on Cortex-M4 takes
+		 *   3-6 CPU cycles (1 for increment and 2-5 for branching), so with delay
+		 *   of 1 million iterations LEDs will be have blink with period of 0.375-0.75
+		 *   seconds. To have a more predictable delay one needs to use hardware
+		 *   timers, which is outside the scope of this tutorial. */
 		for(i = 0; i < 10000000; i++);
 		all_on_off(led);
 		led = !led;
