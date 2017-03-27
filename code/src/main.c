@@ -111,7 +111,7 @@ void main()
 		 *   external clock is always 40MHz and system clock (in active mode) is
 		 *   80 MHz (section 15.1.4 on p. 406) One loop iteration on Cortex-M4 takes
 		 *   3-6 CPU cycles (1 for increment and 2-5 for branching), so with delay
-		 *   of 1 million iterations LEDs will be have blink with period of 0.375-0.75
+		 *   of 1 million iterations LEDs will be have blink with period of 0.75-1.5
 		 *   seconds. To have a more predictable delay one needs to use hardware
 		 *   timers, which is outside the scope of this tutorial. */
 		for(i = 0; i < 10000000; i++);
