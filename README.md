@@ -20,6 +20,7 @@ It is assumed that you already know the C language and can work with command lin
   - Go to 'code' directory and run 'make'. It should build the template project without giving any errors. 
   - On some platforms gcc/ld binaries may be called differently (i.e. 'arm-none-eabi-gcc' instead of 'arm-eabi-gcc'), you will need to modify the Makefile accordingly in this case.
   - Once you're done with the task, you will want to upload the firmware to the MCU to test it. For CC3200 the best way to do it is to run ```arm-eabi-gdb -x gdbinit ../code/blink.elf``` from the 'boot' directory, provided you have OpenOCD installed and PATH set up properly. Linux kernel might need some help to recognize the on-board usb-jtag, see [this tutorial](https://hackpad.com/Using-the-CC3200-Launchpad-Under-Linux-Rrol11xo7NQ) for the details.
+  - You now should be in gdb CLI, type "continue" to make your program run or "s" to debug it step-by-step.
 3. Annotated solution for CC3200 can be seen in [code](code) directory on "cc3200" branch.
 
 ## Task
